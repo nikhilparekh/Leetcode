@@ -16,4 +16,4 @@ def revInt(num):
     return res
 
 
-print(revInt())
+print(revInt(-123))
