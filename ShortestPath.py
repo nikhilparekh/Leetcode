@@ -15,16 +15,20 @@ def shortestPath(edges,source,dest):
     graph = buildPath(edges)
 
     visited = set()
-    queue = [[source,0]]
-    
+    queue = []
+    cur = [source,0]
+    queue.append(cur)
     while queue:
-        [node,dist] = queue.pop()
+        [node, dist] = queue.pop()
         if node==dest:
             return [node,dist]
         for i in graph[node]:
             if i not in visited:
+                visited.add(i)
                 queue.insert(0,[i,dist+1])
     return False
+
+
 
 
 
