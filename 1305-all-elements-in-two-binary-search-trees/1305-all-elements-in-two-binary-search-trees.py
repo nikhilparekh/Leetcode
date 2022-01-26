@@ -6,11 +6,7 @@
 #         self.right = right
 class Solution:
     def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
-        arr = []
-        def dfs(root, arr):
-            arr = dfs(root.left, arr) + [root.val] + dfs(root.right, arr) if root else []
-            return arr
-        
-        arr = dfs(root1, arr)
-        arr.extend(dfs(root2, arr))
-        return sorted(arr)
+        def dfs(root):
+            return dfs(root.left)+[root.val]+dfs(root.right) if root else []
+        return sorted(dfs(root1)+dfs(root2))
+            
